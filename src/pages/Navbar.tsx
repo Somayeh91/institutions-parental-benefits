@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm flex justify-between">
-      <div className="flex-none">
+    <div className="navbar bg-base-100 shadow-sm">
+      <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
           Physics
         </Link>
       </div>
-      <div className="flex-1 flex justify-center">
+      <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link to="/visualization">Visualizations</Link>
@@ -19,7 +19,6 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-none">{/* Empty div for balance */}</div>
     </div>
   );
 };
