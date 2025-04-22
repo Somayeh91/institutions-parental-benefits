@@ -65,13 +65,15 @@ function Visualizations() {
   if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
   if (!data) return <div className="p-4">No data available</div>;
 
-  const columnDefs: string[] = data?.values[0];
+  let columnDefs: string[] = data?.values[0];
+  columnDefs = columnDefs.slice(0, 8);
+  columnDefs[7] = "Links";
   //   const rows = data?.values.map((row) => {
   //     columnDefs?.map((col) => {
   //       return x;
   //     });
   //   });
-  const columns = columnDefs?.map((col) => {
+  const columns = columnDefs?.map((col, idx) => {
     return {
       field: col,
       autoHeight: true, // allows AG Grid to grow row height based on content
@@ -83,6 +85,11 @@ function Visualizations() {
       sortable: true, // enable sorting
       filter: true, // enable filtering
       //   editable: true,
+      ...(idx === 7 && {
+        cellRenderer: (params: any) => {
+          return <span dangerouslySetInnerHTML={{ __html: params.value }} />;
+        },
+      }),
     };
   });
 
@@ -92,12 +99,29 @@ function Visualizations() {
 
   for (let i = 1; i < data?.values.length; i++) {
     const currRow: { [key: string]: string } = {};
-    for (let j = 0; j < data?.values[0].length; j++) {
+
+    for (let j = 0; j < 8; j++) {
       currRow[columnDefs[j]] = data.values[i][j];
     }
+
+    // Process remaining columns as links
+    const links: string[] = [];
+    for (let j = 7; j + 1 < data.values[i].length; j += 2) {
+      const title = data.values[i][j];
+      const url = data.values[i][j + 1];
+      if (title && url) {
+        links.push(
+          `<a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>`
+        );
+      }
+    }
+
+    // Assign to the 7th column (index 6)
+    const linkField = columnDefs[7];
+    currRow[linkField] = links.join(", ");
+
     rows.push(currRow);
   }
-  //   console.log(columns);
 
   return (
     <div className="p-4">

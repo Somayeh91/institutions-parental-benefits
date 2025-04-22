@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
-          Physics Institution Benefits for Graduate Students
+          Parental Benefits for Physics Graduate Students
         </Link>
       </div>
       <div className="flex-none">
