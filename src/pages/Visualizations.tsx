@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
+import { themeBalham } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 
 // Register all Community features
@@ -65,14 +66,24 @@ function Visualizations() {
   if (!data) return <div className="p-4">No data available</div>;
 
   const columnDefs: string[] = data?.values[0];
-  console.log(columnDefs);
   //   const rows = data?.values.map((row) => {
   //     columnDefs?.map((col) => {
   //       return x;
   //     });
   //   });
   const columns = columnDefs?.map((col) => {
-    return { field: col };
+    return {
+      field: col,
+      autoHeight: true, // allows AG Grid to grow row height based on content
+      cellStyle: {
+        whiteSpace: "normal", // this is key to wrapping
+        wordBreak: "break-word", // optional, better wrapping behavior
+        lineHeight: "1.2rem", // optional, tweak spacing
+      },
+      sortable: true, // enable sorting
+      filter: true, // enable filtering
+      //   editable: true,
+    };
   });
 
   type Dictionary = { [key: string]: string };
@@ -91,8 +102,23 @@ function Visualizations() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Data</h1>
-      <div className="h-screen w-screen">
-        <AgGridReact rowData={rows} columnDefs={columns} />
+      <div className="h-screen w-full ag-theme-alpine">
+        <AgGridReact
+          theme={themeBalham}
+          rowData={rows}
+          columnDefs={columns}
+          // defaultColDef={{
+          //   resizable: true, // 👈 This enables column resizing
+          // }}
+          //   onRowClicked={onRowClicked}
+          //   getRowHeight={getRowHeight}
+          rowSelection="multiple" // or "single"
+          pagination={true}
+          paginationPageSize={10}
+          suppressClipboardPaste={false}
+          allowContextMenuWithControlKey={true}
+          suppressContextMenu={false}
+        />
       </div>
     </div>
   );
