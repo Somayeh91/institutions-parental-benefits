@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar fixed top-0 left-0 right-0 z-50 bg-base-100/80 backdrop-blur-md shadow-sm">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
           Parental Benefits for Physics Graduate Students
@@ -12,10 +12,10 @@ const Navbar: React.FC = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/visualization">Visualizations</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/data">Data</Link>
           </li>
         </ul>
       </div>
