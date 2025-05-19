@@ -3,6 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import { themeBalham } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import * as XLSX from "xlsx";
+
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 // Define an interface for the Google Sheets API response
@@ -22,7 +23,7 @@ function Data() {
     } else {
       setTitle("Domestic Graduate Students");
     }
-    fetch("/AI-collected information.xlsx")
+    fetch(import.meta.env.BASE_URL + "AI-collected-information.xlsx")
       .then((res) => res.arrayBuffer())
       .catch((error) => {
         console.error("Error fetching the file:", error);

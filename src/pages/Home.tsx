@@ -1,6 +1,7 @@
 // src/components/SplashPage.tsx
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react"; // Optional: use lucide icons
+import FAQ from "../components/FAQ";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative h-screen w-full bg-gray-900/80 bg-[url('src/assets/cern.jpg')] bg-cover bg-center bg-blend-multiply">
+      <div className="relative h-screen w-full bg-gray-900/80 bg-[url('/cern.jpg')] bg-cover bg-center bg-blend-multiply">
         {/* Dark overlay */}
         {/* <div className=" bg-gray-900/80 bg-[url('/cern.jpg')] bg-blend-multiply bg-cover bg-center absolute inset-0"> */}
         {/* Centered Text */}
@@ -37,24 +38,33 @@ export default function Home() {
       {/* </div> */}
 
       {/* About Section */}
-      <div className="min-h-screen flex flex-col justify-between bg-base-100 px-6 pt-32 pb-16">
-        <div>
+      <div className="min-h-screen flex flex-col items-center bg-base-100 px-6 py-16 gap-y-32">
+        {/* About */}
+        <div className="max-w-3xl text-center">
           <div ref={aboutRef} />
-          <h2 className="text-center text-3xl font-bold mb-6">About</h2>
-          <p className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">About</h2>
+          <p className="mx-auto max-w-2xl">
             We are presenting a list of a summary of benefits US institutions
             with physics and astronomy programs provide for international and
             domestic graduate students and postdocs who are parents or planning
-            to become parents. This dataset has been collected from available
-            online information provided by the institutions. This community
-            impact project has been accomplished as part of the Rubin
-            Observatory's Legacy Survey of Space and Time{" "}
-            <a href="https://lsstdiscoveryalliance.org/" className="underline">
+            to become parents. The dataset can be viewed by clicking the Data
+            tab above. This dataset has been collected from available online
+            information provided by the institutions. This community impact
+            project has been accomplished as part of the Rubin Observatory's
+            Legacy Survey of Space and Time{" "}
+            <a
+              href="https://lsstdiscoveryalliance.org/"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               (LSST) Discovery Alliance
             </a>{" "}
             <a
               href="https://lsstdiscoveryalliance.org/programs/catalyst-fellowship/"
               className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Catalyst Postdoctoral Fellowship Program{" "}
             </a>
@@ -62,9 +72,16 @@ export default function Home() {
             Templeton Foundation.
           </p>
         </div>
-        <div>
-          <h3 className=" text-center">Questions/Concerns</h3>
-          <p className="text-center text-sm max-w-xl mx-auto  text-gray-500">
+
+        {/* FAQ */}
+        <div className="w-full">
+          <FAQ />
+        </div>
+
+        {/* Questions/Concerns */}
+        <div className="max-w-xl text-center">
+          <h3 className="text-lg font-semibold mb-2">Questions/Concerns</h3>
+          <p className="text-sm text-gray-500">
             If you’d like to suggest updates or improvements to this dataset,
             please contact{" "}
             <a

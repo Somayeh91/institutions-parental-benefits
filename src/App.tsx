@@ -7,6 +7,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/data" element={<Data />} />
