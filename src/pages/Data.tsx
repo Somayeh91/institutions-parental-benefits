@@ -66,8 +66,7 @@ function Data() {
   let columnDefs: string[] = data[0].map(String); // Convert to string
   columnDefs = columnDefs.slice(0, 8); // First 8 columns contain data
   columnDefs[7] = "Links"; // Rename the 8th column to "Links"
-  // console.log(columnDefs);
-  //good code
+
   const columns = columnDefs?.map((col, idx) => {
     return {
       field: col,
@@ -81,6 +80,7 @@ function Data() {
       filter: true, // enable filtering
       //   editable: true,
       ...(idx === 7 && {
+        // Only apply this to the 8th column - "Links". idx  must change if the "Links" column is moved
         cellRenderer: (params: any) => {
           return <span dangerouslySetInnerHTML={{ __html: params.value }} />;
         },
@@ -96,12 +96,14 @@ function Data() {
     const currRow: { [key: string]: string } = {};
 
     for (let j = 0; j < 8; j++) {
+      // Only process the first 8 columns. Change this if the "Links" column is moved
       currRow[columnDefs[j]] = data[i][j];
     }
 
     // Process remaining columns as links
     const links: string[] = [];
     for (let j = 7; j + 1 < data[0].length; j += 2) {
+      // Start from 8th column (index 7). Change this if the "Links" column is moved
       const title = data[i][j];
       const url = data[i][j + 1];
       if (title && url) {
@@ -112,7 +114,7 @@ function Data() {
     }
 
     // Assign to the 8th column (index 6)
-    const linkField = columnDefs[7];
+    const linkField = columnDefs[7]; // "Links". Change this if the "Links" column is moved
     currRow[linkField] = links.join(", ");
 
     rows.push(currRow);

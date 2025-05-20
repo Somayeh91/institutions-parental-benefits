@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react"; // Optional: use lucide icons
 import FAQ from "../components/FAQ";
+import Glossary from "../components/Glossary";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -12,9 +13,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative h-screen w-full bg-gray-900/80 bg-[url('/cern.jpg')] bg-cover bg-center bg-blend-multiply">
-        {/* Dark overlay */}
-        {/* <div className=" bg-gray-900/80 bg-[url('/cern.jpg')] bg-blend-multiply bg-cover bg-center absolute inset-0"> */}
+      <div className="relative h-screen w-full bg-gray-700/60 bg-[url('/P1057249Rubin-sunset.jpg')] bg-cover bg-center bg-blend-multiply">
         {/* Centered Text */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -35,13 +34,13 @@ export default function Home() {
           <ChevronDown size={36} />
         </button>
       </div>
-      {/* </div> */}
 
       {/* About Section */}
       <div className="min-h-screen flex flex-col items-center bg-base-100 px-6 py-16 gap-y-32">
         {/* About */}
+        {/* <div ref={aboutRef} className="h-0" /> */}
         <div className="max-w-3xl text-center">
-          <div ref={aboutRef} />
+          <div ref={aboutRef} className="scroll-mt-24" />
           <h2 className="text-3xl font-bold mb-6">About</h2>
           <p className="mx-auto max-w-2xl">
             We are presenting a list of a summary of benefits US institutions
@@ -76,6 +75,10 @@ export default function Home() {
         {/* FAQ */}
         <div className="w-full">
           <FAQ />
+        </div>
+        {/* Glossary */}
+        <div className="w-full">
+          <Glossary />
         </div>
 
         {/* Questions/Concerns */}

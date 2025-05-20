@@ -51,6 +51,56 @@ const faqs: FAQItem[] = [
     answer:
       "<p>Title IX protects pregnant and parenting students and employees from discrimination based on their sex, including pregnancy and parental status, in educational programs and activities. This law ensures international students are covered by Title IX when they are enrolled in a U.S. educational institution.</p>",
   },
+  {
+    question:
+      "How can I be aware of external fundings for parents in academia?",
+    answer: `<p>Some private organizations provide ChildCare grants to accommodate participation of parents in conferences and social events. Make sure to contact your advisor, PI, or department chair to ask about these grants. For example, within the Astrophysics community, the American Astronomical Society (AAS) has a childcare grant for people to participate in their meetings. The Legacy Survey of Space and Time Discovery Alliance (LSST-DA) also provides childcare grants upon availability of funds. </p>`,
+  },
+  {
+    question:
+      "Does maternity or parental leave affect my visa status as an international student or postdoc?",
+    answer: `<p>Taking maternity or parental leave does not automatically affect your visa status, but you must coordinate carefully. Make sure to consult with your department chair and the international office at your institution.</p> 
+    <br/>
+    <ul class="list-disc pl-5">
+      <li>
+      <strong>F-1/J-1 students</strong>: A “leave of absence” or reduced course load must be authorized by your university's International Students Office. Pregnancy and medical conditions can qualify for a reduced course load under SEVIS regulations.
+      </li>
+
+      <li>
+      <strong>J-1 postdocs </strong>: Short-term medical or parental leave is usually allowed.
+      </li>
+
+      <li>
+      <strong>H-1B postdocs </strong>: Paid or unpaid medical leave, including parental leave, is generally permitted without affecting status, as long as the employment relationship continues.
+      </li>
+    </ul>`,
+  },
+  {
+    question: "Will I lose my funding or stipend during parental leave?",
+    answer: `
+    <p>It depnds how you are funded:</p>
+    <br/>
+    <ul class="list-disc pl-5">
+      <li>
+      <strong>Employees (W-2 postdocs, research staff)</strong>: You may be entitled to leave under FMLA or state laws, but whether it is paid depends on your employer’s policy. Most universities offer paid leave for postdocs. 
+      </li>
+
+      <li>
+      <strong>Stipend-supported students (fellowships, research assistants)</strong>: Funding agencies like NSF, NIH, DOE, NASA often allow paid parental leave (typically 8–12 weeks). Check the rules of your specific grant/fellowship.
+      </li>
+
+      <li>
+      <strong>University-funded RA/TA positions</strong>: Policies vary. Some universities provide paid parental leave for TAs/RAs; others only guarantee unpaid leave with a promise of continued enrollment.
+
+      </li>
+    
+    `,
+  },
+  {
+    question:
+      "Can I extend my graduate program or postdoc contract due to parental leave?",
+    answer: `Coming soon...`,
+  },
 ];
 
 function FAQ() {
@@ -59,7 +109,7 @@ function FAQ() {
       <h2 className="text-3xl font-bold text-center mb-4">
         Frequently Asked Questions
       </h2>
-      <h3 className="text-2xl text-center mb-2"> Know Your Rights</h3>
+      <h3 className="text-2xl text-center mb-4"> Know your Rights.</h3>
       <p className="text-center mb-4">
         It is very important that you know what legal rights you have. In this
         section we have collected legal advice from experts to answer some
