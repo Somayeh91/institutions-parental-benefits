@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r origin"
+    "deploy": "gh-pages -d dist --repo git@github.com:Somayeh91/institutions-parental-benefits.git"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.3",
