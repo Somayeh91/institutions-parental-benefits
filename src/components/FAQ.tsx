@@ -96,11 +96,6 @@ const faqs: FAQItem[] = [
     
     `,
   },
-  {
-    question:
-      "Can I extend my graduate program or postdoc contract due to parental leave?",
-    answer: `Coming soon...`,
-  },
 ];
 
 function FAQ() {
